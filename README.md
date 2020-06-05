@@ -1,6 +1,8 @@
 # shorty
 A simple Django url shortner built using GraphQL.
 
+![stats](imgs/stats.png)
+
 ## Features
 
 1. Easy to use
