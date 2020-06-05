@@ -43,9 +43,13 @@
                     </div>
                 </form>
             </div>
+            <div class="text-center" style="display: none" id="qrcode">
+
+            </div>
         </div>
     </div>
 {% endblock %}
 {% block javascript %}
+    <script src="{% static 'vendor/qrcodejs/qrcode.min.js' %}"></script>
     <script src="{% static 'js/index.js' %}"></script>
 {% endblock %}

@@ -7,8 +7,9 @@ A simple Django url shortner built using GraphQL.
 
 1. Easy to use
 2. Simple GraphQL API
-3. Fast (LRU caching using Redis)
-4. Data collections and visualization
+3. QR Code Generation
+4. Fast (LRU caching using Redis)
+5. Data collections and visualization
     - OS type
     - Device type
     - Browser type

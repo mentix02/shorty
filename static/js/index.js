@@ -50,6 +50,13 @@ $('#main-form').submit(function(e) {
                 lnkElement.prop('readonly', true);
 
                 copymode = true;
+
+                let q = new QRCode("qrcode", {
+                    display: ''
+                });
+                q.makeCode(`${document.location.href}${hash}`);
+                $('#qrcode').show();
+
             }
         });
     } else {
