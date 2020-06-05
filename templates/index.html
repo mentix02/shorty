@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+    <div class="container" style="margin-top: 4%;">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="row">
+                <div id="logo" class="text-center">
+                    <h1>shorty</h1>
+                    <p>a simple URL shortener</p>
+                </div>
+                <form role="form" id="main-form">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input aria-label="" id="link" class="form-control" type="url"
+                                   name="link" autocomplete="off" data-provide="typeahead"
+                                   placeholder="paste link here" required autofocus>
+                            <span class="input-group-btn">
+                                <button class="btn btn-success" id="shorten-btn" type="submit">
+                                    <i class="glyphicon glyphicon-resize-small" aria-hidden="true"></i>shorten
+                                </button>
+                                <a class="btn btn-success" style="display: none"
+                                   id="stats-btn" type="button" href="{% url 'stats' %}?hash=">
+                                    <i class="glyphicon glyphicon-stats" aria-hidden="true"></i>stats
+                                </a>
+                                <button class="btn btn-primary hidden" onclick="copyLink()" id="copy-btn" type="button">
+                                    <i class="glyphicon glyphicon-copy"></i> copy
+                                </button>
+                            </span>
+                        </div>
+                        <br>
+                        <div class="alert alert-danger alert-dismissible hidden" id="error-msg" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            Something went wrong!
+                        </div>
+                        <div class="alert alert-success alert-dismissible" style="display: none" id="success-msg" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            Copied to clipboard!
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascript %}
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}

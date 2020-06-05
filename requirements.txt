@@ -1,0 +1,7 @@
+django
+mysqlclient
+django-redis
+django-ipware
+python-decouple
+graphene-django
+django-user-agents

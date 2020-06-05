@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Statistics{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'vendor/chartjs/chart.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/stats.css' %}">
+{% endblock %}
+{% block body %}
+    <div class="container" style="margin-top: 5%;">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="row">
+                <div id="logo" class="text-center">
+                    <h1>short stats</h1>
+                    <p>visualize your shorty link's performance</p>
+                </div>
+                <form role="form" id="main-form">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input aria-label="" id="link" class="form-control" type="url"
+                                   name="link" autocomplete="off" value="{% if request.GET.hash %}
+                                   http://{{ request.get_host }}/{{ request.GET.hash }}
+                                   {% endif %} "
+                                   placeholder="paste shorty link here" required autofocus>
+                            <span class="input-group-btn">
+                                <button class="btn btn-success" id="view-btn" type="submit">
+                                    <i class="glyphicon glyphicon-stats" aria-hidden="true"></i>view
+                                </button>
+                            </span>
+                        </div>
+                        <br>
+                        <div class="alert alert-danger alert-dismissible hidden" id="error-msg" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            shorty link not found!
+                        </div>
+                    </div>
+                </form>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="charts-container">
+            <div class="chart-container">
+                <canvas id="clickChart" width="200" height="100"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="browserChart" width="200" height="100"></canvas>
+            </div>
+        </div>
+        <br><br>
+        <div class="charts-container">
+            <div class="chart-container">
+                <canvas id="osChart" width="200" height="100"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="deviceChart" width="200" height="100"></canvas>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+{% endblock %}
+{% block javascript %}
+    <script src="{% static 'vendor/chartjs/chart.bundle.min.js' %}"></script>
+    <script src="{% static 'js/stats.js' %}"></script>
+{% endblock %}
