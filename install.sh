@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 printf "Generating secret key... "
 function django_secret() { python -c "import random,string;print(''.join([random.SystemRandom().choice(\"{}{}{}\".format(string.ascii_letters, string.digits, string.punctuation)) for i in range(63)]).replace('\\'','\\'\"\\'\"\\''))"; }
 echo "SECRET_KEY=$(django_secret)" > ".env"
