@@ -6,8 +6,8 @@ echo "SECRET_KEY=$(django_secret)" > ".env"
 echo "done."
 
 
-read -p 'Database username: ' db_user
-read -sp 'Database password: ' db_password
+read -pr 'Database username: ' db_user
+read -spr 'Database password: ' db_password
 
 echo ""
 
