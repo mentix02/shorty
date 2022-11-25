@@ -102,3 +102,5 @@ CACHES = {
 USER_AGENTS_CACHE = 'default'
 
 BASE_URL = 'http://127.0.0.1'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
